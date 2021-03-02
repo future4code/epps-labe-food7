@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch, Route} from "react-router-dom"
+import { BrowserRouter,Switch, Route} from "react-router-dom"
 import CartPage from '../Pages/CartPage/CartPage'
 import DetailsPage from '../Pages/DetailsPage/DetailsPage'
 import HomePage from '../Pages/HomePage/HomePage'
@@ -7,10 +7,12 @@ import LoginPage from '../Pages/LoginPage/LoginPage'
 import ProfilePage from '../Pages/ProfilePage/ProfilePage'
 import RequestsPage from '../Pages/RequestsPage/RequestsPage'
 import SignUpPage from '../Pages/SignUpPage/SignUpPage'
+import ErrorPage from '../Pages/ErrorPage/ErrorPage'
 
 
 const Router = () => {
   return (
+    <BrowserRouter>
       <Switch>
       <Route exact path="/login">
           <LoginPage/>
@@ -37,6 +39,7 @@ const Router = () => {
           <ErrorPage/>
         </Route>
       </Switch>
+      </BrowserRouter>
   )
 }
 

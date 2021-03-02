@@ -1,7 +1,12 @@
 import React from 'react'
+import { Rectangle } from './style';
 
 const HomePage = () => {
-    return <div>Home</div>
+    return (
+        <Rectangle>
+            <img src='https://i.imgur.com/skA7UXV.png'/>
+        </Rectangle>
+    )
 }
 
 export default HomePage
