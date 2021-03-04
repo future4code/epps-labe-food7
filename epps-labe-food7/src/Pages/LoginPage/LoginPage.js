@@ -32,7 +32,6 @@ const LoginPage = () => {
                 body
             )
             .then ((res) => {
-<<<<<<< HEAD
                 localStorage.setItem("token", res.data.token);
                 setToken(localStorage.getItem("token"))
                 console.log(`hasAdress: ${res.data.user.hasAddress}`)
