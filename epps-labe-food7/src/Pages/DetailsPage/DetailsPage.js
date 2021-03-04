@@ -1,9 +1,17 @@
 import React from 'react'
+import { Feed, Header } from './style';
+import TextField from '@material-ui/core/TextField';
+import SearchIcon from '@material-ui/icons/Search';
 
 
 const DetailsPage = () => {
     return (
-       <div>DetailsPage</div>
+       <Feed>
+           <Header>FutureEats</Header>
+           <TextField id="outlined-search" label="Restaurante" type="search" variant="outlined">
+               <SearchIcon/>
+           </TextField>
+       </Feed>
     )
 }
 
