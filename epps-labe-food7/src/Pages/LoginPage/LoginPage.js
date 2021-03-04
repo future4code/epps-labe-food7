@@ -10,8 +10,6 @@ const LoginPage = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [token, setToken] = useState('')
-
 
     const handleEmail = (e) => {
         setEmail(e.target.value);
@@ -34,6 +32,7 @@ const LoginPage = () => {
                 body
             )
             .then ((res) => {
+<<<<<<< HEAD
                 localStorage.setItem("token", res.data.token);
                 setToken(localStorage.getItem("token"))
                 console.log(`hasAdress: ${res.data.user.hasAddress}`)
@@ -85,20 +84,3 @@ const LoginPage = () => {
 }
 
 export default LoginPage
-
-{/* <div>Entrar</div>
-                    <Input
-                        placeholder={'E-mail'}
-                        value={email}
-                        onChange={handleEmail}
-                    />
-                    <Input
-                        placeholder={'Senha'}
-                        value={password}
-                        onChange={handlePassword}
-                    />
-                                      
-                    <button onClick={handleLogar}>Entrar</button>
-                    <br />
-                    <strong>Ainda não tem cadastro? </strong>
-                    <a onClick={() => goToSignUp(history)}>Clique aqui</a> */}
