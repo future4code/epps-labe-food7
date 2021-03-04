@@ -1,10 +1,11 @@
 import React from 'react'
-import { BrowserRouter,Switch, Route} from "react-router-dom"
+import { BrowserRouter, Switch, Route } from "react-router-dom"
 import CartPage from '../Pages/CartPage/CartPage'
-import DetailsPage from '../Pages/DetailsPage/DetailsPage'
+import FeedPage from '../Pages/FeedPage/FeedPage'
 import HomePage from '../Pages/HomePage/HomePage'
 import LoginPage from '../Pages/LoginPage/LoginPage'
 import ProfilePage from '../Pages/ProfilePage/ProfilePage'
+import DetailsPage from '../Pages/DetailsPage/DetailsPage'
 import RequestsPage from '../Pages/RequestsPage/RequestsPage'
 import SignUpPage from '../Pages/SignUpPage/SignUpPage'
 import ErrorPage from '../Pages/ErrorPage/ErrorPage'
@@ -14,42 +15,48 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
-      <Route exact path="/">
-          <HomePage/>
+        <Route exact path="/login">
+          <LoginPage />
         </Route>
-      <Route exact path="/login">
-          <LoginPage/>
-        </Route>
+
         <Route exact path="/cadastro">
-          <SignUpPage/>
+          <SignUpPage />
         </Route>
-<<<<<<< HEAD
-=======
+
         <Route exact path="/endereco">
-          <AdressPage/>
+          <AdressPage />
         </Route>
 
         <Route exact path="/">
-          <HomePage/>
+          <HomePage />
         </Route>
->>>>>>> 31598cca2df4747e92d69daa592de566cae75406
+
         <Route exact path="/carrinho">
-          <CartPage/>
+          <CartPage />
         </Route>
+
         <Route exact path="/feed">
-          <DetailsPage/>
+          <FeedPage />
         </Route>
+
+        <Route exact path="/restaurante/:id">
+          <DetailsPage />
+        </Route>
+
         <Route exact path="/pedidos">
-          <RequestsPage/>
+          <RequestsPage />
         </Route>
+
         <Route exact path="/perfil">
-          <ProfilePage/>
+          <ProfilePage />
         </Route>
+
         <Route>
-          <ErrorPage/>
+          <ErrorPage />
         </Route>
+        
       </Switch>
-      </BrowserRouter>
+    </BrowserRouter>
   )
 }
 
