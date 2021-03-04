@@ -55,7 +55,7 @@ const LoginPage = () => {
                 <img src='https://i.imgur.com/kAcITlq.png'/>
             </Header>
             <Form>
-                <Label>E-mail</Label>
+                <Label>E-mail*</Label>
                 <ContainerInput>
                     <Input
                         placeholder='email@gmail.com'
@@ -65,11 +65,10 @@ const LoginPage = () => {
                         onChange={handleEmail}
                     />
                 </ContainerInput>
-                <Label>Senha</Label>
+                <Label>Senha*</Label>
                 <ContainerInput>
-                    
                     <Input
-                        placeholder='senha'
+                        placeholder='Mínimo 6 caracteres'
                         required
                         value={password}
                         type={"password"}
