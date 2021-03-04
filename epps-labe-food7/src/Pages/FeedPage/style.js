@@ -1,52 +1,5 @@
-<<<<<<< HEAD
 import styled from 'styled-components'
 
-<<<<<<< HEAD
-export const Feed = styled.div `
-    border: 1px solid black;
-    
-`
-
-export const Header = styled.div `
-    border: 1px solid #dfdfdf;
-    padding: 10px;
-    font-size:17px;
-    font-family: Arial;
-    text-align: center;
-`
-
-export const Search = styled.input `
-    width: 328px;
-    height: 56px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 17px;
-    border: 1px solid grey;
-    box-sizing: border-box;
-    border-radius: 2px;
-    margin-top: 10px;
-    padding:10px;
-
-`
-export const Card = styled.div `
-    border: 1px solid #b8b8b8;
-    width: 328px;
-    height: 200px;
-    padding: 0 0 16px;
-    border-radius: 8px;
-    margin:auto;
-    margin-top:10px;
-`
-
-export const DetailCard = styled.div `
-   display: flex;
-   
-   
-`
-export const ImageCard = styled.img `
-     width: 328px;
-    height: 120px;
-`
-=======
 export const ContainerContent = styled.div`
  display: flex;
  justify-content: space-between;
@@ -58,9 +11,6 @@ export const ContainerContent = styled.div`
  `
 
 export const Header = styled.div`
-text-align:center;
-font-family: Arial, Helvetica, sans-serif;
-font-size: 20px;
 box-sizing: border-box;
 width: 100vw;
 min-height: 6.4vh;
@@ -69,6 +19,12 @@ margin: 0 0 10px;
 backdrop-filter: blur(10px);
 box-shadow: 0 0.5px 0 0 black-25;
 border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+p {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 8px;
+    font-family:'Roboto';
+}
 
 `
 
@@ -125,9 +81,22 @@ export const DetailCard = styled.div `
     }
 `
 export const ImageCard = styled.img ` 
+    border-radius: 8px 8px 0 0;
     height: 120px;
-    object-fit: contain;
+    width: 328px;
+
 `
->>>>>>> ea37b36e93c3484a1a7d6226ceb5a8970f3c97e7
-=======
->>>>>>> ba45359daaf97c3ae5ff7a135e953b7a0fc9f35c
+
+export const MenuFeed = styled.div `
+    height: 55px;
+    position: fixed;
+    top:92%;
+    box-sizing: border-box;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #ffffff;
+    border: 1px solid #b8b8b8;
+    width:100vw;
+
+`

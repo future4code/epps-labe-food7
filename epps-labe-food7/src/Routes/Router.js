@@ -26,7 +26,6 @@ const Router = () => {
         <Route exact path="/endereco">
           <AdressPage />
         </Route>
-
         <Route exact path="/">
           <HomePage />
         </Route>
@@ -35,13 +34,13 @@ const Router = () => {
           <CartPage />
         </Route>
 
-
         <Route exact path="/feed">
           <FeedPage />
           </Route>
 
+      
         <Route exact path="/restaurante/:id">
-          <DetailsPage />
+          <DetailsPage/>
         </Route>
 
         <Route exact path="/pedidos">
