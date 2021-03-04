@@ -5,6 +5,10 @@ export const goToLogin = (history) => {
   export const goToSignUp = (history) => {
     history.push("/cadastro")
   }
+
+  export const goToAdress = (history) => {
+    history.push("/endereco")
+  }
   
   export const goToHome = (history) => {
     history.push("/")
@@ -25,3 +29,7 @@ export const goToLogin = (history) => {
   export const goToProfile = (history) => {
     history.push('/perfil')
   }
+
+  export const goToBack = (history) => {
+    history.go(-1)
+  };
