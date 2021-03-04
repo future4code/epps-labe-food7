@@ -61,7 +61,7 @@ margin: 8px 16px 20px;
 
 export const Label = styled.label`
 position: relative;
-width: 21.6vw;
+width: 21.8vw;
   height: 2.8vh;
   background-color: #fff;
   margin: 3px 4px 63px 16px;
@@ -73,14 +73,7 @@ width: 21.6vw;
   line-height: normal;
   letter-spacing: -0.29px;
   border: 2px solid #FFF;
-  color: ${(props) => {
-    if (props.erro === false) {
-      return "#e02020"
-    } else {
-      return "#b8b8b8"
-
-    }
-  }};
+  color: #b8b8b8;
 `
 export const ContainerInput = styled.div`
  display: flex;
@@ -90,14 +83,7 @@ export const ContainerInput = styled.div`
  width: 91.1vw;
  height: 8.7vh;
  margin: 7.5px 16px;
- border: ${(props) => {
-    if (props.erro === false) {
-      return "1px solid #e02020"
-    } else {
-      return "1px solid #b8b8b8"
-
-    }
-  }};
+ border: 1px solid #b8b8b8;
 `
 
 export const ImgSenha = styled.div`
@@ -110,7 +96,9 @@ export const Text = styled.div`
  display: flex;  
  justify-content: center;
  align-items: center;
- margin: 32px 0 10px 0 ;
+ height: 50px;
+ text-align: center;
+ margin-bottom: 8px;
 `
 export const ErrorMensage = styled.p`
  margin: 0px 16px;
