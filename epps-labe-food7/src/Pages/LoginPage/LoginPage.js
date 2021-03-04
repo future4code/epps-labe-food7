@@ -1,7 +1,86 @@
-import React from 'react'
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+import { goToSignUp, goToProfile } from '../../Routes/Coordinator.js';
+import { Rectangle, LoginCard, LoginPageStyle } from './style';
 
 const LoginPage = () => {
-    return <div>Login</div>
+
+    const history = useHistory();
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [token, setToken] = useState('')
+
+
+    const handleEmail = (e) => {
+        setEmail(e.target.value);
+    }
+
+    const handlePassword = (e) => {
+        setPassword(e.target.value);
+    }
+
+    const handleLogar = () => {
+        const body = {
+            email: email,
+	        password: password
+        };
+        
+        try {
+            axios
+            .post(
+                "https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/login",
+                body
+            )
+            .then ((res) => {
+                console.log(res.data)
+                localStorage.setItem("token", res.data.token);
+                setToken(localStorage.getItem("token"))
+                console.log(`hasAdress: ${res.data.user.hasAddress}`)
+                if (res.data.user.hasAddress) {
+                    goToSignUp(history);
+                } else {
+                    goToProfile(history);
+                }
+            })
+        } catch (error) {
+            console.error(error);
+            alert("Erro ao logar");
+        }
+    }
+
+    return (
+        <>
+            <LoginPageStyle>
+                <Rectangle>
+                    <img src='https://i.imgur.com/skA7UXV.png'/>
+                </Rectangle>
+                
+                <LoginCard>
+                    <img src='https://i.imgur.com/kAcITlq.png'/>
+                    <div>Entrar</div>
+                    <div>
+                        <input
+                            placeholder={'E-mail'}
+                            value={email}
+                            onChange={handleEmail}
+                        />
+                    </div>
+                    <div>
+                        <input
+                            placeholder={'Senha'}
+                            value={password}
+                            onChange={handlePassword}
+                        />
+                    </div>
+                    
+                    <button onClick={handleLogar}>Entrar</button>
+                </LoginCard>
+            </LoginPageStyle>
+        </>
+    )
+    
 }
 
 export default LoginPage
