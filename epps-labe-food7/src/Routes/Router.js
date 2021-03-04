@@ -34,9 +34,14 @@ const Router = () => {
         <Route exact path="/carrinho">
           <CartPage />
         </Route>
+<<<<<<< HEAD
 
         <Route exact path="/feed">
           <FeedPage />
+=======
+        <Route exact path="/feed">
+          <DetailsPage/>
+>>>>>>> ea37b36e93c3484a1a7d6226ceb5a8970f3c97e7
         </Route>
 
         <Route exact path="/restaurante/:id">

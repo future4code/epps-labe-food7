@@ -10,8 +10,6 @@ const LoginPage = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [token, setToken] = useState('')
-
 
     const handleEmail = (e) => {
         setEmail(e.target.value);
@@ -34,15 +32,9 @@ const LoginPage = () => {
                 body
             )
             .then ((res) => {
-                console.log(res.data)
+
                 localStorage.setItem("token", res.data.token);
-                setToken(localStorage.getItem("token"))
-                console.log(`hasAdress: ${res.data.user.hasAddress}`)
-                if (res.data.user.hasAddress) {
-                    goToSignUp(history);
-                } else {
-                    goToProfile(history);
-                }
+                history.push("/feed")
             })
         } catch (error) {
             console.error(error);
@@ -53,6 +45,10 @@ const LoginPage = () => {
     return (
         <>
             <LoginPageStyle>
+<<<<<<< HEAD
+=======
+                
+>>>>>>> ea37b36e93c3484a1a7d6226ceb5a8970f3c97e7
                 <LoginCard>
                     <img src='https://i.imgur.com/kAcITlq.png'/>
                     <div>Entrar</div>
