@@ -1,11 +1,10 @@
 import React from 'react';
-import './App.css';
 import Router from './Routes/Router';
 
-function App() {
+const App = () => {
   return (
     <div>
-     <Router/>
+      <Router />
     </div>
   );
 }

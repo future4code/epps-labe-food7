@@ -8,7 +8,7 @@ import ProfilePage from '../Pages/ProfilePage/ProfilePage'
 import RequestsPage from '../Pages/RequestsPage/RequestsPage'
 import SignUpPage from '../Pages/SignUpPage/SignUpPage'
 import ErrorPage from '../Pages/ErrorPage/ErrorPage'
-
+import AdressPage from '../Pages/AdressPage/AdressPage'
 
 const Router = () => {
   return (
@@ -23,6 +23,16 @@ const Router = () => {
         <Route exact path="/cadastro">
           <SignUpPage/>
         </Route>
+<<<<<<< HEAD
+=======
+        <Route exact path="/endereco">
+          <AdressPage/>
+        </Route>
+
+        <Route exact path="/">
+          <HomePage/>
+        </Route>
+>>>>>>> 31598cca2df4747e92d69daa592de566cae75406
         <Route exact path="/carrinho">
           <CartPage/>
         </Route>
