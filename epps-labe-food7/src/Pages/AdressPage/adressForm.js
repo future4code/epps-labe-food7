@@ -19,7 +19,7 @@ const AdressForm = () => {
             .then((res) => {
                     localStorage.setItem('token', res.data.token)
                 clearFields()
-                history.push('/restaurants')
+                history.push('/feed')
             })
             .catch((err) => {
                 alert(err.response)

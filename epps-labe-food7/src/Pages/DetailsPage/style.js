@@ -78,6 +78,9 @@ export const DetailCard = styled.div `
     }
 `
 export const ImageCard = styled.img ` 
+    border-radius: 8px 8px 0 0;
     height: 120px;
-    object-fit: contain;
+    width: 328px;
+    
+
 `
