@@ -53,10 +53,6 @@ const LoginPage = () => {
     return (
         <>
             <LoginPageStyle>
-                <Rectangle>
-                    <img src='https://i.imgur.com/skA7UXV.png'/>
-                </Rectangle>
-                
                 <LoginCard>
                     <img src='https://i.imgur.com/kAcITlq.png'/>
                     <div>Entrar</div>

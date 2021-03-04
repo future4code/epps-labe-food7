@@ -14,14 +14,14 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
+      <Route exact path="/">
+          <HomePage/>
+        </Route>
       <Route exact path="/login">
           <LoginPage/>
         </Route>
         <Route exact path="/cadastro">
           <SignUpPage/>
-        </Route>
-        <Route exact path="/">
-          <HomePage/>
         </Route>
         <Route exact path="/carrinho">
           <CartPage/>
