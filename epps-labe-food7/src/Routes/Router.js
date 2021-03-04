@@ -30,7 +30,7 @@ const Router = () => {
         <Route exact path="/carrinho">
           <CartPage/>
         </Route>
-        <Route exact path="/detalhes/:id">
+        <Route exact path="/feed">
           <DetailsPage/>
         </Route>
         <Route exact path="/pedidos">
