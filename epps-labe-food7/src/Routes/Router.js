@@ -4,7 +4,8 @@ import CartPage from '../Pages/CartPage/CartPage'
 import FeedPage from '../Pages/FeedPage/FeedPage'
 import HomePage from '../Pages/HomePage/HomePage'
 import LoginPage from '../Pages/LoginPage/LoginPage'
-import ProfilePage from '../Pages/ProfilePage/ProfilePage'
+import ProfilePage from '../Pages/ProfilePage/ProfilePage/ProfilePage'
+import EditProfile from '../Pages/ProfilePage/EditProfile/EditProfile';
 import DetailsPage from '../Pages/DetailsPage/DetailsPage'
 import RequestsPage from '../Pages/RequestsPage/RequestsPage'
 import SignUpPage from '../Pages/SignUpPage/SignUpPage'
@@ -37,7 +38,6 @@ const Router = () => {
         <Route exact path="/feed">
           <FeedPage />
           </Route>
-
       
         <Route exact path="/restaurante/:id">
           <DetailsPage/>
@@ -49,6 +49,10 @@ const Router = () => {
 
         <Route exact path="/perfil">
           <ProfilePage />
+        </Route>
+
+        <Route exact path="/perfil/editar">
+          <EditProfile />
         </Route>
 
         <Route>

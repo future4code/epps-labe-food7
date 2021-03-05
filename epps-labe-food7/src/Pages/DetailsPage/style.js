@@ -1,52 +1,5 @@
-<<<<<<< HEAD
-import styled from 'styled-components'
+import styled from "styled-components";
 
-<<<<<<< HEAD
-export const Feed = styled.div `
-    border: 1px solid black;
-    
-`
-
-export const Header = styled.div `
-    border: 1px solid #dfdfdf;
-    padding: 10px;
-    font-size:17px;
-    font-family: Arial;
-    text-align: center;
-`
-
-export const Search = styled.input `
-    width: 328px;
-    height: 56px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 17px;
-    border: 1px solid grey;
-    box-sizing: border-box;
-    border-radius: 2px;
-    margin-top: 10px;
-    padding:10px;
-
-`
-export const Card = styled.div `
-    border: 1px solid #b8b8b8;
-    width: 328px;
-    height: 200px;
-    padding: 0 0 16px;
-    border-radius: 8px;
-    margin:auto;
-    margin-top:10px;
-`
-
-export const DetailCard = styled.div `
-   display: flex;
-   
-   
-`
-export const ImageCard = styled.img `
-     width: 328px;
-    height: 120px;
-`
-=======
 export const ContainerContent = styled.div`
  display: flex;
  justify-content: space-between;
@@ -58,76 +11,104 @@ export const ContainerContent = styled.div`
  `
 
 export const Header = styled.div`
-text-align:center;
-font-family: Arial, Helvetica, sans-serif;
-font-size: 20px;
 box-sizing: border-box;
 width: 100vw;
 min-height: 6.4vh;
+padding-left: 10px;
 margin: 0 0 10px;  
 -webkit-backdrop-filter: blur(10px);
 backdrop-filter: blur(10px);
 box-shadow: 0 0.5px 0 0 black-25;
 border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-
+display: flex;
+align-items: center;
+p {
+    margin-left:30%;;
+    font-size: 18px;
+    font-family:'Roboto';
+}
 `
 
-export const ContainerSearch = styled.div ` 
-    text-align: center;
-
+export const ImageCard = styled.img ` 
+    border-radius: 8px 8px 0 0;
+    height: 120px;
+    width: 328px;
 `
 
-export const Input = styled.input `
-   width: 328px;
-  height: 56px;
-  font-size: 18px;
-  box-sizing: border-box;
-  padding-left: 40px;
-  border-radius: 2px;
-  border: 1px solid #b8b8b8;
-  background: url('https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/0EC434DF-B2F5-4D7C-8E3B-44E81E3D4941.svg') no-repeat scroll 7px 7px;
-  background-position-y: 15px;
-  
+export const ContainerInfo = styled.div ` 
+    width: 328px;
+    margin-left: 10px;
+    font-family: 'Roboto';
+    h4{
+        margin: 10px 0 10px 0;
+        color:#5cb646;
+    }
+    p{
+        margin: 10px 0 10px 0;
+        color:#b8b8b8;
+    }
 `
 
-export const ContainerFiltro = styled.div ` 
-      width: 360px;
-  height: 42px;
-  display: flex;
-  justify-content: space-around;
-  padding:5px;
+export const ContainerProduct = styled.div `
+    width:328px;
+    font-family: 'Roboto';
+    h4 {
+        margin-bottom: 2px;
+    }
+
 `
 
 export const Card = styled.div ` 
     width: 328px;
-    height: 188px;
-    border-radius: 8px;
-    border: 1px solid #b8b8b8;
-    margin-top:10px;
-    p {
-        font-family: Arial;
-        margin-top:5px;
-        margin-bottom:5px;
-        margin-left: 15px;
+  height: 112px;
+  margin: 7px 0 0;
+  border-radius: 8px;
+  border: 1px solid #b8b8b8;
+display: flex;
+
+
+`
+
+export const InfoProduct = styled.div ` 
+    flex-direction: column;
+    
+    h4 {
+        margin-top: 12px;
         color:#5cb646;
-        font-size: 16px;
+        
+        
     }
-`
 
-export const DetailCard = styled.div ` 
-    display: flex;
-    justify-content:space-between;
     p {
-        margin-top:0;
-        margin-right: 15px;
-        color: #b8b8b8;
+        font-size: 13px;
+        color:#b8b8b8;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
 
+    h3{
+        margin-top: 0;
     }
 `
-export const ImageCard = styled.img ` 
-    height: 120px;
-    object-fit: contain;
+
+export const ImageProduct = styled.img `
+width: 96px;
+  height: 112px;
+  border-radius: 8px 0 0 8px;
+  margin: 0 16px 0 0;
+ 
 `
->>>>>>> ea37b36e93c3484a1a7d6226ceb5a8970f3c97e7
-=======
->>>>>>> ba45359daaf97c3ae5ff7a135e953b7a0fc9f35c
+
+export const BotaoAdd = styled.button `
+    width: 100px;
+  height: 31px;
+    background:transparent;
+    font-family:'Roboto';
+    margin-top:82px;
+  border-radius: 8px 0 8px 0;
+  border: 1px solid #5cb646;
+  color:#5cb646;
+  outline: none;
+  cursor: pointer;
+`
+

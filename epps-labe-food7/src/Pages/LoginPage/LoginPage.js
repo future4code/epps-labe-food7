@@ -45,10 +45,6 @@ const LoginPage = () => {
     return (
         <>
             <LoginPageStyle>
-<<<<<<< HEAD
-=======
-                
->>>>>>> ea37b36e93c3484a1a7d6226ceb5a8970f3c97e7
                 <LoginCard>
                     <img src='https://i.imgur.com/kAcITlq.png'/>
                     <div>Entrar</div>
