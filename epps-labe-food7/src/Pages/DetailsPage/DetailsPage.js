@@ -16,10 +16,8 @@ const DetailsPage = () => {
     useEffect(() => {
         axios.get('https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/restaurants', headers)
             .then((res) => {
-               console.log(res.data)
             })
             .catch((err) => {
-                console.log(err)
             })
 
     }, [])
