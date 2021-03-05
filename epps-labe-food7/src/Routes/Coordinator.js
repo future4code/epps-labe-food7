@@ -19,7 +19,7 @@ export const goToLogin = (history) => {
   }
 
   export const goToDetails = (history, id) => {
-    history.push(`/detalhes/${id}`)
+    history.push(`/restaurante/${id}`)
   }
   
   export const goToRequests = (history) => {

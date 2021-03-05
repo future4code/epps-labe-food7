@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Rectangle = styled.div `
-    width: 360px;
-    height: 640px;
+    height: 57vh;
     padding: 288px 0 0 117px;
     background-color: #000000;
+    color: white;
 `

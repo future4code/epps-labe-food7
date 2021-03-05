@@ -45,7 +45,6 @@ const LoginPage = () => {
     return (
         <>
             <LoginPageStyle>
-                
                 <LoginCard>
                     <img src='https://i.imgur.com/kAcITlq.png'/>
                     <div>Entrar</div>
