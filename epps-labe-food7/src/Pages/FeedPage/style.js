@@ -11,7 +11,7 @@ export const ContainerContent = styled.div`
  `
 
 export const Header = styled.div`
-box-sizing: border-box;
+
 width: 100vw;
 min-height: 6.4vh;
 margin: 0 0 10px;  
@@ -60,8 +60,9 @@ export const Card = styled.div `
     border-radius: 8px;
     border: 1px solid #b8b8b8;
     margin-top:10px;
-    p {
-        font-family: Arial;
+    font-family: 'Roboto';
+    cursor:pointer;
+    h4 {
         margin-top:5px;
         margin-bottom:5px;
         margin-left: 15px;
@@ -74,6 +75,7 @@ export const DetailCard = styled.div `
     display: flex;
     justify-content:space-between;
     p {
+        margin-left: 15px;
         margin-top:0;
         margin-right: 15px;
         color: #b8b8b8;
@@ -84,7 +86,6 @@ export const ImageCard = styled.img `
     border-radius: 8px 8px 0 0;
     height: 120px;
     width: 328px;
-
 `
 
 export const MenuFeed = styled.div `
@@ -98,5 +99,8 @@ export const MenuFeed = styled.div `
     background-color: #ffffff;
     border: 1px solid #b8b8b8;
     width:100vw;
+    img {
+        cursor:pointer;
+    }
 
 `

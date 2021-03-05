@@ -46,9 +46,12 @@ const LoginPage = () => {
         <>
             <LoginPageStyle>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 
 >>>>>>> ba45359daaf97c3ae5ff7a135e953b7a0fc9f35c
+=======
+>>>>>>> 1c48170923965720a9420908d1c9a013485ec8d4
                 <LoginCard>
                     <img src='https://i.imgur.com/kAcITlq.png'/>
                     <div>Entrar</div>
