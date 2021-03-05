@@ -36,9 +36,9 @@ const Router = () => {
         </Route>
 
         <Route exact path="/feed">
-          <FeedPage />
-          </Route>
-      
+          <FeedPage/>
+        </Route>
+
         <Route exact path="/restaurante/:id">
           <DetailsPage/>
         </Route>

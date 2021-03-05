@@ -66,9 +66,8 @@ const DetailsPage = () => {
                     )
                 })}
             </ContainerProduct>
-          
-
         </ContainerContent>
+
     )
 }
 
