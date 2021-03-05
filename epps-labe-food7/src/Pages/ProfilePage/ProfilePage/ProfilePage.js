@@ -8,6 +8,7 @@ function ProfilePage() {
 	const history = useHistory()
 	const {states, setters, requests} = useContext(GlobalStateContext)
 console.log(states)
+
 	
 	return (
 		<Body>
@@ -22,6 +23,7 @@ console.log(states)
 				</DivEditar>
 				<p>{states.perfil.email}</p>
 				<p>{states.perfil.cpf}</p>
+
 			</Div>
 			<Endereco>
 				<DivEditar>
@@ -29,11 +31,13 @@ console.log(states)
 					<Img src="https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/78F166E7-C366-4CF8-84DD-C5E788B588EB.svg" onClick={() => { history.push("Endereco") }} />
 				</DivEditar>
 				<h5>{states.endereco.street}, {states.endereco.number} - {states.endereco.neighbourhood}</h5>
+
 			</Endereco>
 			<Div>
 				<p>Histórico de pedidos</p>
 				<hr />
 				<p>{states.historicoDeCompra.map(array => {
+
 					const date = new Date(array.createdAt)
 					const tempo = date.toLocaleDateString("pt-br")
 					return <div key={array.createdAt}>

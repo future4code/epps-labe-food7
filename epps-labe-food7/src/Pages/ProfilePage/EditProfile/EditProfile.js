@@ -64,6 +64,7 @@ function EditProfile() {
 			<Form onSubmit={handleSubmit}>
 				<Div>
 					<input id="outlined-basic" label="Nome" variant="outlined"
+
 						name="name"
 						type="text"
 						placeholder="Nome"
@@ -74,6 +75,7 @@ function EditProfile() {
 				
 				<Div>
 					<input id="outlined-basic" label="Email" variant="outlined"
+
 						name="email"
 						type="email"
 						placeholder="email@examplo.com"
@@ -84,6 +86,7 @@ function EditProfile() {
 				
 				<Div>
 					<input id="outlined-basic" label="Cpf" variant="outlined"
+
 						name="cpf"
 						type="text"
 						pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"

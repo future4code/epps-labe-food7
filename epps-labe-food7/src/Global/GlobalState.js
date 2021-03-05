@@ -1,39 +1,3 @@
-/* <<<<<<< HEAD
-import React, { useState } from "react";
-import axios from "axios";
-import { BASE_URL } from "../constants/urls";
-import GlobalStateContext from "./GlobalStateContext";
-
-const GlobalState = (props) => {
-  const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
-
-  const getProducts = () => {
-    axios
-      .get(`${BASE_URL}/products`)
-      .then((res) => {
-        setProducts(res.data.products);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  };
-
-  const states = { products, cart };
-  const setters = { setProducts, setCart };
-  const requests = { getProducts };
-
-  const data = { states, setters, requests };
-
-  return (
-    <GlobalStateContext.Provider value={data}>
-      {props.children}
-    </GlobalStateContext.Provider>
-  );
-};
-
-export default GlobalState;
-======= */
 import React, { useEffect, useState } from "react";
 import GlobalStateContext from "./GlobalStateContext"
 import axios from "axios";
@@ -45,6 +9,7 @@ const GlobalState = (props) => {
     const pegaRestaurantes = () => {
         axios
             .get(`${BASE_URL}/restaurants`, {
+
                 headers: {
                     "auth": window.localStorage.getItem("token")
                 }
@@ -52,6 +17,7 @@ const GlobalState = (props) => {
             .then(response => setRestaurantes(response.data.restaurants))
             .catch(error => console.log(error))
     }
+
 
     useEffect(() => {
         pegaRestaurantes()
@@ -86,10 +52,12 @@ const GlobalState = (props) => {
     const [perfil, setPerfil] = useState({})
     const [historicoDeCompra, setHistoricoDeCompra] = useState([])
 
+
     const pegaTodoEndereco = () => {
         axios
             .get(
                 `${BASE_URL}/profile/address`,
+
                 {
                     headers: {
                         auth: window.localStorage.getItem('token'),
@@ -104,6 +72,7 @@ const GlobalState = (props) => {
         axios
             .get(
                 `${BASE_URL}/profile`,
+
                 {
                     headers: {
                         auth: window.localStorage.getItem('token'),
@@ -118,6 +87,7 @@ const GlobalState = (props) => {
         axios
             .get(
                 `${BASE_URL}/orders/history`,
+
                 {
                     headers: {
                         auth: window.localStorage.getItem('token'),
@@ -137,6 +107,7 @@ const GlobalState = (props) => {
     const states = { restaurantes, restauranteId, restauranteData, produtos, perfil, historicoDeCompra, endereco} /*carrinho, pedidoConfirmado, carrinhoRestaurantData, carrinhoDePostagem, */ /* , valorTotal  */
     const setters = { setRestaurantes, setRestauranteId, /* setCarrinho, setCarrinhoRestaurantData, setCarrinhoDePostagem, */ setPerfil, setHistoricoDeCompra, setEndereco/* , setValorTotal */ }
     const requests = { /* verificaPedido, */ pegaRestaurantes, pegaTodoEndereco, pegaPerfil, pegaHistoricoDeCompra, pegaRestauranteId }
+
     const data = { states, setters, requests }
 
 
@@ -148,3 +119,4 @@ const GlobalState = (props) => {
 }
 
 export default GlobalState
+
