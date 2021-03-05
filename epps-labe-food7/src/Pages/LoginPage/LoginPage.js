@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import { goToSignUp, goToProfile } from '../../Routes/Coordinator.js';
-import { Rectangle, LoginCard, LoginPageStyle } from './style';
+import { goToHome, goToProfile } from '../../Routes/Coordinator.js';
+import { Input, Label, Form, Header, ContainerContent, Button, ContainerInput } from './style';
 
 const LoginPage = () => {
 
@@ -32,9 +32,14 @@ const LoginPage = () => {
                 body
             )
             .then ((res) => {
-
                 localStorage.setItem("token", res.data.token);
-                history.push("/feed")
+                setToken(localStorage.getItem("token"))
+                console.log(`hasAdress: ${res.data.user.hasAddress}`)
+                if (!res.data.user.hasAddress) {
+                    goToHome(history);
+                } else {
+                    goToProfile(history);
+                }
             })
         } catch (error) {
             console.error(error);
@@ -43,31 +48,36 @@ const LoginPage = () => {
     }
 
     return (
-        <>
-            <LoginPageStyle>
-                
-                <LoginCard>
-                    <img src='https://i.imgur.com/kAcITlq.png'/>
-                    <div>Entrar</div>
-                    <div>
-                        <input
-                            placeholder={'E-mail'}
-                            value={email}
-                            onChange={handleEmail}
-                        />
-                    </div>
-                    <div>
-                        <input
-                            placeholder={'Senha'}
-                            value={password}
-                            onChange={handlePassword}
-                        />
-                    </div>
-                    
-                    <button onClick={handleLogar}>Entrar</button>
-                </LoginCard>
-            </LoginPageStyle>
-        </>
+        <ContainerContent>
+            <Header>
+                <img src='https://i.imgur.com/kAcITlq.png'/>
+            </Header>
+            <Form>
+                <Label>E-mail*</Label>
+                <ContainerInput>
+                    <Input
+                        placeholder='email@gmail.com'
+                        required
+                        value={email}
+                        type={"email"}
+                        onChange={handleEmail}
+                    />
+                </ContainerInput>
+                <Label>Senha*</Label>
+                <ContainerInput>
+                    <Input
+                        placeholder='Mínimo 6 caracteres'
+                        required
+                        value={password}
+                        type={"password"}
+                        onChange={handlePassword}
+                    />
+                </ContainerInput>
+                <Button onClick={handleLogar}>Entrar</Button>
+            </Form>
+            
+            
+        </ContainerContent>
     )
     
 }
