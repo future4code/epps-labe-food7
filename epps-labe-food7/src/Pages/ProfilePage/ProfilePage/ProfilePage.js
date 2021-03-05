@@ -5,8 +5,9 @@ import { useHistory } from 'react-router-dom';
 
 
 function ProfilePage() {
-	const data = useContext(GlobalStateContext)
 	const history = useHistory()
+	const {states, setters, requests} = useContext(GlobalStateContext)
+console.log(states)
 
 	
 	return (
@@ -17,23 +18,26 @@ function ProfilePage() {
 			<hr />
 			<Div>
 				<DivEditar>
-					<p>{data.states.perfil.name}</p>
+					<p>{states.perfil.name}</p>
 					<Img src="https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/78F166E7-C366-4CF8-84DD-C5E788B588EB.svg" onClick={() => { history.push("EditarCadastro") }} />
 				</DivEditar>
-				<p>{data.states.perfil.email}</p>
-				<p>{data.states.perfil.cpf}</p>
+				<p>{states.perfil.email}</p>
+				<p>{states.perfil.cpf}</p>
+
 			</Div>
 			<Endereco>
 				<DivEditar>
 					<p>Endereço cadastrado</p>
 					<Img src="https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/78F166E7-C366-4CF8-84DD-C5E788B588EB.svg" onClick={() => { history.push("Endereco") }} />
 				</DivEditar>
-				<h5>{data.states.endereco.street}, {data.states.endereco.number} - {data.states.endereco.neighbourhood}</h5>
+				<h5>{states.endereco.street}, {states.endereco.number} - {states.endereco.neighbourhood}</h5>
+
 			</Endereco>
 			<Div>
 				<p>Histórico de pedidos</p>
 				<hr />
-				<p>{data.states.historicoDeCompra.map(array => {
+				<p>{states.historicoDeCompra.map(array => {
+
 					const date = new Date(array.createdAt)
 					const tempo = date.toLocaleDateString("pt-br")
 					return <div key={array.createdAt}>

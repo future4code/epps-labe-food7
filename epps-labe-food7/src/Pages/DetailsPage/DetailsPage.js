@@ -26,7 +26,6 @@ const DetailsPage = () => {
                 
             })
             .catch((err) => {
-                console.log(err)
             })
 
     }, [params.id])

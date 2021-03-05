@@ -1,7 +1,6 @@
-import axios from 'axios';
 import React, {  useState } from 'react';
+import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import TextField from '@material-ui/core/TextField';
 import {Header, Img, P, Form, Div, Button} from './style';
 import { BASE_URL } from '../../../constants/urls';
 
@@ -64,7 +63,8 @@ function EditProfile() {
 			<hr/>
 			<Form onSubmit={handleSubmit}>
 				<Div>
-					<TextField id="outlined-basic" label="Nome" variant="outlined"
+					<input id="outlined-basic" label="Nome" variant="outlined"
+
 						name="name"
 						type="text"
 						placeholder="Nome"
@@ -74,7 +74,8 @@ function EditProfile() {
 				</Div>
 				
 				<Div>
-					<TextField id="outlined-basic" label="Email" variant="outlined"
+					<input id="outlined-basic" label="Email" variant="outlined"
+
 						name="email"
 						type="email"
 						placeholder="email@examplo.com"
@@ -84,7 +85,8 @@ function EditProfile() {
 				</Div>
 				
 				<Div>
-					<TextField id="outlined-basic" label="Cpf" variant="outlined"
+					<input id="outlined-basic" label="Cpf" variant="outlined"
+
 						name="cpf"
 						type="text"
 						pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"

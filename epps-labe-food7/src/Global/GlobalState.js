@@ -8,15 +8,17 @@ const GlobalState = (props) => {
 
     const pegaRestaurantes = () => {
         axios
-            .get("https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/restaurants", {
+            .get(`${BASE_URL}/restaurants`, {
+
                 headers: {
                     "auth": window.localStorage.getItem("token")
                 }
             })
             .then(response => setRestaurantes(response.data.restaurants))
             .catch(error => console.log(error))
-        }
-    
+    }
+
+
     useEffect(() => {
         pegaRestaurantes()
     }, [])
@@ -48,12 +50,14 @@ const GlobalState = (props) => {
 
     const [endereco, setEndereco] = useState({})
     const [perfil, setPerfil] = useState({})
-    const [historicoDeCompra, setHistoricoDeCompra] = useState({})
+    const [historicoDeCompra, setHistoricoDeCompra] = useState([])
+
 
     const pegaTodoEndereco = () => {
         axios
             .get(
-                'https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/profile/address',
+                `${BASE_URL}/profile/address`,
+
                 {
                     headers: {
                         auth: window.localStorage.getItem('token'),
@@ -67,7 +71,8 @@ const GlobalState = (props) => {
     const pegaPerfil = () => {
         axios
             .get(
-                'https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/profile',
+                `${BASE_URL}/profile`,
+
                 {
                     headers: {
                         auth: window.localStorage.getItem('token'),
@@ -81,7 +86,8 @@ const GlobalState = (props) => {
     const pegaHistoricoDeCompra = () => {
         axios
             .get(
-                'https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/orders/history',
+                `${BASE_URL}/orders/history`,
+
                 {
                     headers: {
                         auth: window.localStorage.getItem('token'),
@@ -97,10 +103,11 @@ const GlobalState = (props) => {
         pegaPerfil();
         pegaHistoricoDeCompra();
     }, [])
+ 
+    const states = { restaurantes, restauranteId, restauranteData, produtos, perfil, historicoDeCompra, endereco} /*carrinho, pedidoConfirmado, carrinhoRestaurantData, carrinhoDePostagem, */ /* , valorTotal  */
+    const setters = { setRestaurantes, setRestauranteId, /* setCarrinho, setCarrinhoRestaurantData, setCarrinhoDePostagem, */ setPerfil, setHistoricoDeCompra, setEndereco/* , setValorTotal */ }
+    const requests = { /* verificaPedido, */ pegaRestaurantes, pegaTodoEndereco, pegaPerfil, pegaHistoricoDeCompra, pegaRestauranteId }
 
-    const states = { restaurantes, restauranteId, restauranteData, produtos, carrinho, pedidoConfirmado, carrinhoRestaurantData, carrinhoDePostagem, perfil, historicoDeCompra, endereco, valorTotal }
-    const setters = { setRestaurantes, setRestauranteId, setCarrinho, setCarrinhoRestaurantData, setCarrinhoDePostagem, setPerfil, setHistoricoDeCompra, setEndereco, setValorTotal }
-    const requests = {verificaPedido, pegaRestaurantes, pegaTodoEndereco, pegaPerfil, pegaHistoricoDeCompra, pegaRestauranteId}
     const data = { states, setters, requests }
 
 
@@ -112,3 +119,4 @@ const GlobalState = (props) => {
 }
 
 export default GlobalState
+
