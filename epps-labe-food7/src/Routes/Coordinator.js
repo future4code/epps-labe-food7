@@ -26,6 +26,10 @@ export const goToLogin = (history) => {
     history.push('/pedidos')
   }
 
+  export const goToFeed = (history) => {
+    history.push('/feed')
+  }
+
   export const goToProfile = (history) => {
     history.push('/perfil')
   }

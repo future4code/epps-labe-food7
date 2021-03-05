@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { goToSignUp, goToProfile } from '../../Routes/Coordinator.js';
-import { Rectangle, LoginCard, LoginPageStyle } from './style';
+import SenhaImg from '../../images/senha.png'
+import SenhaImg2 from '../../images/senha-2.png'
+import { LoginCard, LoginPageStyle, ContainerInput, Label, ImgSenha,Input, Button, LinkCadastro } from './style';
 
 const LoginPage = () => {
 
@@ -10,6 +12,7 @@ const LoginPage = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [verSenha, setVerSenha] = useState(true);
 
     const handleEmail = (e) => {
         setEmail(e.target.value);
@@ -17,6 +20,10 @@ const LoginPage = () => {
 
     const handlePassword = (e) => {
         setPassword(e.target.value);
+    }
+
+    const mudarImagem = () => {
+        setVerSenha(!verSenha)
     }
 
     const handleLogar = () => {
@@ -49,22 +56,43 @@ const LoginPage = () => {
                 <LoginCard>
                     <img src='https://i.imgur.com/kAcITlq.png'/>
                     <div>Entrar</div>
-                    <div>
-                        <input
-                            placeholder={'E-mail'}
-                            value={email}
-                            onChange={handleEmail}
-                        />
-                    </div>
-                    <div>
-                        <input
-                            placeholder={'Senha'}
-                            value={password}
-                            onChange={handlePassword}
-                        />
-                    </div>
+                    <ContainerInput>
+                            <Label>E-mail*</Label>
+                            <ImgSenha>
+                                <Input
+                                    placeholder='email@gmail.com'
+                                    required
+                                    name={"email"}
+                                    value={email}
+                                    onChange={handleEmail}
+                                    type={"email"}
+                                />
+                            </ImgSenha>
+                        </ContainerInput>
+
+                        <ContainerInput>
+                            <Label>Senha*</Label>
+                            <ImgSenha>
+                                {verSenha? <Input placeholder='Mínimo 6 caracteres' 
+                                required 
+                                name={"password"}
+                                value={password}
+                                onChange={handlePassword}
+                                type={"password"}/> : <Input placeholder='Mínimo 6 caracteres' 
+                                required 
+                                name={"password"}
+                                value={password}
+                                onChange={handlePassword}
+                                type={"text"}
+                                title={"Mínimo 6 caracteres"}
+                                pattern={"^[A-Za-z0-9\d]{6,}$"}
+                                />}
+                                {verSenha? <img onClick={mudarImagem} src={SenhaImg} alt='' /> : <img onClick={mudarImagem} src={SenhaImg2} alt='' />}
+                            </ImgSenha>
+                        </ContainerInput>
                     
-                    <button onClick={handleLogar}>Entrar</button>
+                    <Button onClick={handleLogar}>Entrar</Button>
+                    <LinkCadastro onClick={() => goToSignUp(history)}>Não possui cadastro? Clique aqui</LinkCadastro>
                 </LoginCard>
             </LoginPageStyle>
         </>

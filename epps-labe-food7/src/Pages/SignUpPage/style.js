@@ -57,6 +57,7 @@ margin: 8px 16px 20px;
   background-color: #5cb646;
   border: none;
   border-radius: 2px;
+  cursor:pointer;
  `
 
 export const Label = styled.label`
