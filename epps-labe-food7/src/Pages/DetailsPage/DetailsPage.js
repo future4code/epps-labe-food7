@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react'
 import { Feed, Header, Search, Card, ImageCard, DetailCard } from './style';
 
@@ -18,7 +19,14 @@ const DetailsPage = () => {
            </Card>
 
        </Feed>
+=======
+import React from 'react';
+
+const DetailsPage = () => {
+    return(
+        <div>DetailsPage</div>
+>>>>>>> ba45359daaf97c3ae5ff7a135e953b7a0fc9f35c
     )
 }
 
-export default DetailsPage
+export default DetailsPage;
