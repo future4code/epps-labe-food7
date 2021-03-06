@@ -64,7 +64,7 @@ export const Card = styled.div `
   margin: 7px 0 0;
   border-radius: 8px;
   border: 1px solid #b8b8b8;
-display: flex;
+  display: flex;
 
 
 `
@@ -112,3 +112,27 @@ export const BotaoAdd = styled.button `
   cursor: pointer;
 `
 
+export const Container =styled.div `
+    background-color:white;
+`
+export const DivModal = styled.div `
+    font-family: 'Roboto';
+    text-align:center;
+    select {
+    width: 255px;
+    height: 56px;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 10px;
+    }
+    button{
+        color:#5cb646;
+        font-size: 16px;
+        background-color: transparent;
+        border:0;
+        position: relative;
+        outline: none;
+        top: 30px;
+        left:40px;
+}
+`

@@ -33,3 +33,20 @@ export const DivSup = styled.div`
     grid-template: 1fr / 15fr 1fr;
     align-items: center;
 `
+
+export const MenuFeed = styled.div `
+    height: 55px;
+    position: fixed;
+    top:92%;
+    box-sizing: border-box;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #ffffff;
+    border: 1px solid #b8b8b8;
+    width:100vw;
+    img {
+        cursor:pointer;
+    }
+
+`

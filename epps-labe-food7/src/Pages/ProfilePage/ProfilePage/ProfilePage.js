@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react';
 import GlobalStateContext from '../../../Global/GlobalStateContext';
-import { Endereco, Div, H3, Img, DivEditar, Body, DivSup } from './style'
+import { Endereco, Div, H3, Img, DivEditar, Body, DivSup, MenuFeed } from './style'
 import { useHistory } from 'react-router-dom';
+import { goToFeed, goToCart } from '../../../Routes/Coordinator.js';
 
 
 function ProfilePage() {
 	const history = useHistory()
 	const {states, setters, requests} = useContext(GlobalStateContext)
-console.log(states)
 
 	
 	return (
@@ -49,6 +49,11 @@ console.log(states)
 					</div>
 				})}</p>
 			</Div>
+			<MenuFeed>
+            <img onClick={() => goToFeed(history)} src='https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/26E4B645-ACF2-4F3C-B575-99BBC6F1D937.svg'/>
+            <img onClick={() => goToCart(history)} src='https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/EC5DAC84-C9D0-4BA6-869A-6431F534FCBE.svg'/>
+            <img src='https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/1D1DD7DC-E5F0-4C32-B0F8-54937C88ECA8.svg'/>
+        </MenuFeed>
 		</Body>
 	)
 }
