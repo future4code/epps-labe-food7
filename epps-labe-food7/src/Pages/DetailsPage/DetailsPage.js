@@ -5,6 +5,7 @@ import { goToBack } from '../../Routes/Coordinator';
 import SetaImg from '../../images/back.png';
 import axios from 'axios';
 import Modal from 'react-modal';
+import { BASE_URL } from "../../constants/urls";
 
 Modal.setAppElement('#root')
 
@@ -17,7 +18,7 @@ const DetailsPage = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     useEffect(() => {
-        axios.get(`https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/restaurants/${params.id}`,
+        axios.get(`${BASE_URL}/restaurants/${params.id}`,
             {
                 headers: {
                     auth: localStorage.getItem('token')
