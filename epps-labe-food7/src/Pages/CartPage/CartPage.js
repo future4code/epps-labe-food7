@@ -2,8 +2,8 @@ import React, { useEffect, useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import ProductItem from "../../Components/ProductItem";
 import GlobalStateContext from "../../Global/GlobalStateContext";
-import { goToDetails } from "../../Routes/Coordinator";
-import { ContainerCart, ContainerAdress, ContainerTotal, Header, TitleAdress, Adress, TitleTotal, Total, HeaderTitle, ProductsCartTitle, Shipping, Cash, Credit, TitlePay, Button, SeparationLine } from "./style";
+import { goToDetails, goToCart, goToProfile, goToFeed } from "../../Routes/Coordinator";
+import { ContainerCart, ContainerAdress, ContainerTotal, Header, TitleAdress, Adress, TitleTotal, Total, HeaderTitle, ProductsCartTitle, Shipping, Cash, Credit, TitlePay, Button, SeparationLine, MenuFeed } from "./style";
 import SelectPay from '../../images/radiobutton-unchecked.png'
 import SelectedPay from '../../images/radiobutton-checked.png'
 import CardProduct from '../../Components/CardProduct/CardProduct'
@@ -79,10 +79,10 @@ const CartPage = () => {
         states.cart.forEach((item) => {
             currentTotal += item.price * item.amount ;
         });
-        let frete = states.cart.length > 0 ? states.restaurantes.shipping : 0 
+        let frete = states.cart.length > 0? states.restaurantes.shipping : 0 
         setPriceToPay(currentTotal + frete );
     }, [states]);
-
+    
     const removeItemFromCart = (itemToRemove) => {
         const index = states.cart.findIndex((i) => i.id === itemToRemove.id);
         let newCart = [...states.cart];
@@ -123,7 +123,11 @@ const CartPage = () => {
             {!selectCredit ? <Credit><img onClick={creditSelect} src={SelectPay} alt="" /> Cartão de crédito</Credit> : <Credit><img onClick={creditSelect} src={SelectedPay} alt="" /> Cartão de crédito</Credit>}
 
             <Button onClick={makeWish}>Confirmar</Button>
-
+            <MenuFeed>
+            <img onClick={() => goToFeed(history)} src='https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/8CD04B9B-73CB-40DC-AE16-63CE142EF1F4.svg'/>
+            <img onClick={() => goToCart(history)} src='https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/EC5DAC84-C9D0-4BA6-869A-6431F534FCBE.svg'/>
+            <img onClick={() => goToProfile(history)} src='https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/14952B60-73C1-4CB5-A219-C37F0F9640B5.svg'/>
+        </MenuFeed>
         </ContainerCart>
     );
 };

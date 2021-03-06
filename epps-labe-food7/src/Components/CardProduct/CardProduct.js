@@ -3,24 +3,24 @@ import { CardProduto, ContainerImg, ContentCard, Amount, Title, Description, Pri
 
 const CardProduct = (props) => {
 
-return (
-    <CardProduto>
-        <ContainerImg><Image src="https://picsum.photos/id/237/93/112" alt={props.name} /></ContainerImg>
-        <ContentCard>
-            <DivTop>
-                <Title>Stencil</Title>
-                <Amount>{props.amount}2</Amount>
-            </DivTop>
-            <Description>Pão, carne, queijo, cebola roxa, tomate, alface e molho</Description>
-            <DivBottom>
-                <Price>R$46,00</Price>
-                <Remove onClick={props.removeItem}>Remover</Remove>
-            </DivBottom>
+    return (
+        <CardProduto>
+            <ContainerImg><Image src={props.image} alt={props.name} /></ContainerImg>
+            <ContentCard>
+                <DivTop>
+                    <Title>{props.name}</Title>
+                    <Amount>{props.amount}</Amount>
+                </DivTop>
+                <Description>{props.description}</Description>
+                <DivBottom>
+                    <Price>R${props.price}</Price>
+                    <Remove onClick={props.removeItem}>Remover</Remove>
+                </DivBottom>
 
 
-        </ContentCard>
+            </ContentCard>
 
-    </CardProduto>
-)
+        </CardProduto>
+    )
 }
 export default CardProduct

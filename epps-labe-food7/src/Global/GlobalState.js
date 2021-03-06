@@ -7,6 +7,7 @@ const GlobalState = (props) => {
     const [restaurantes, setRestaurantes] = useState([])
     const [cart, setCart] = useState([]);
     const [idRestaurant, setIdRestaurant] = useState("");
+    const [restaurant, setRestaurant] = useState([]);
     const pegaRestaurantes = () => {
         axios
             .get(`${BASE_URL}/restaurants`, {
@@ -99,8 +100,8 @@ const GlobalState = (props) => {
         pegaHistoricoDeCompra();
     }, [])
  console.log("REstaurantes", restaurantes)
-    const states = { idRestaurant, cart, restaurantes, restauranteId, restauranteData, produtos, perfil, historicoDeCompra, endereco} /*carrinho, pedidoConfirmado, carrinhoRestaurantData, carrinhoDePostagem, */ /* , valorTotal  */
-    const setters = { setIdRestaurant, setCart, setRestaurantes, setRestauranteId, /* setCarrinho, setCarrinhoRestaurantData, setCarrinhoDePostagem, */ setPerfil, setHistoricoDeCompra, setEndereco/* , setValorTotal */ }
+    const states = { restaurant, idRestaurant, cart, restaurantes, restauranteId, restauranteData, produtos, perfil, historicoDeCompra, endereco} /*carrinho, pedidoConfirmado, carrinhoRestaurantData, carrinhoDePostagem, */ /* , valorTotal  */
+    const setters = { setRestaurant, setIdRestaurant, setCart, setRestaurantes, setRestauranteId, /* setCarrinho, setCarrinhoRestaurantData, setCarrinhoDePostagem, */ setPerfil, setHistoricoDeCompra, setEndereco/* , setValorTotal */ }
     const requests = { /* verificaPedido, */ pegaRestaurantes, pegaTodoEndereco, pegaPerfil, pegaHistoricoDeCompra, pegaRestauranteId }
     const data = { states, setters, requests }
 

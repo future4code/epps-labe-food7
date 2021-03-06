@@ -92,6 +92,9 @@ export const DivTop = styled.div`
 display: flex;
 justify-content: space-between;
 `
-export const Image = styled.div`
-
+export const Image = styled.img`
+  width: 96px;
+  height: 112px;
+  margin: 0 16px 0 0;
+  border-radius: 8px 0 0 8px;
 `
