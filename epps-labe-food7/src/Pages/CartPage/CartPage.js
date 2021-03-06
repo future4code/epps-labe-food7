@@ -69,8 +69,8 @@ const CartPage = () => {
                 
             })
             .catch((err) => {
-                alert(err.response.data.message)
-                console.log(err.response.data)
+               /*  alert(err.response.data.message) */
+                /* console.log(err.response.data) */
             })
     }
     

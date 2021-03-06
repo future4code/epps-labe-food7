@@ -5,11 +5,11 @@ import { BASE_URL } from "../constants/urls";
 
 const GlobalState = (props) => {
     const [restaurantes, setRestaurantes] = useState([])
-
+    const [cart, setCart] = useState([]);
+    const [idRestaurant, setIdRestaurant] = useState("");
     const pegaRestaurantes = () => {
         axios
             .get(`${BASE_URL}/restaurants`, {
-
                 headers: {
                     "auth": window.localStorage.getItem("token")
                 }
@@ -17,7 +17,6 @@ const GlobalState = (props) => {
             .then(response => setRestaurantes(response.data.restaurants))
             .catch(error => console.log(error))
     }
-
 
     useEffect(() => {
         pegaRestaurantes()
@@ -52,12 +51,10 @@ const GlobalState = (props) => {
     const [perfil, setPerfil] = useState({})
     const [historicoDeCompra, setHistoricoDeCompra] = useState([])
 
-
     const pegaTodoEndereco = () => {
         axios
             .get(
                 `${BASE_URL}/profile/address`,
-
                 {
                     headers: {
                         auth: window.localStorage.getItem('token'),
@@ -72,7 +69,6 @@ const GlobalState = (props) => {
         axios
             .get(
                 `${BASE_URL}/profile`,
-
                 {
                     headers: {
                         auth: window.localStorage.getItem('token'),
@@ -87,7 +83,6 @@ const GlobalState = (props) => {
         axios
             .get(
                 `${BASE_URL}/orders/history`,
-
                 {
                     headers: {
                         auth: window.localStorage.getItem('token'),
@@ -103,14 +98,13 @@ const GlobalState = (props) => {
         pegaPerfil();
         pegaHistoricoDeCompra();
     }, [])
- 
-    const states = { restaurantes, restauranteId, restauranteData, produtos, perfil, historicoDeCompra, endereco} /*carrinho, pedidoConfirmado, carrinhoRestaurantData, carrinhoDePostagem, */ /* , valorTotal  */
-    const setters = { setRestaurantes, setRestauranteId, /* setCarrinho, setCarrinhoRestaurantData, setCarrinhoDePostagem, */ setPerfil, setHistoricoDeCompra, setEndereco/* , setValorTotal */ }
+ console.log("REstaurantes", restaurantes)
+    const states = { idRestaurant, cart, restaurantes, restauranteId, restauranteData, produtos, perfil, historicoDeCompra, endereco} /*carrinho, pedidoConfirmado, carrinhoRestaurantData, carrinhoDePostagem, */ /* , valorTotal  */
+    const setters = { setIdRestaurant, setCart, setRestaurantes, setRestauranteId, /* setCarrinho, setCarrinhoRestaurantData, setCarrinhoDePostagem, */ setPerfil, setHistoricoDeCompra, setEndereco/* , setValorTotal */ }
     const requests = { /* verificaPedido, */ pegaRestaurantes, pegaTodoEndereco, pegaPerfil, pegaHistoricoDeCompra, pegaRestauranteId }
-
     const data = { states, setters, requests }
 
-
+console.log("NO global", states.cart)
     return (
         <GlobalStateContext.Provider value={data}>
             {props.children}
@@ -119,4 +113,3 @@ const GlobalState = (props) => {
 }
 
 export default GlobalState
-
