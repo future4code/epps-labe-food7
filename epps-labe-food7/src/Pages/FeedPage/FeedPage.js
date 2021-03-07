@@ -6,15 +6,16 @@ import { goToDetails, goToProfile, goToCart } from '../../Routes/Coordinator';
 import { useHistory } from 'react-router';
 import { BASE_URL } from '../../constants/urls';
 import useForm from '../../Hooks/useForm'
+import CardProductProgress from '../../Components/CardProductProgress/CardProductProgress';
 
 const FeedPage = () => {
 
     const [restaurants, setRestaurants] = useState([]);
     const history = useHistory();
     const [form, onChange, clearFields] = useForm({ busca: "" })
+    const [pedido, setPedido] = useState({})
 
     const filterRestaurants = () => {
-
         let filteredPosts = restaurants.filter(
             (restaurant) =>
                 restaurant.name.toLowerCase().includes(form.busca.toLowerCase()) ||
@@ -22,8 +23,6 @@ const FeedPage = () => {
         )
         return filteredPosts;
     };
-
-
 
     const onClickDetails = (id) => {
         goToDetails(history, id)
@@ -34,6 +33,17 @@ const FeedPage = () => {
             auth: localStorage.getItem('token')
         }
     }
+    useEffect(() => {
+        axios.get(`${BASE_URL}/active-order`, headers)
+        .then((res) => {
+            console.log("Deu certo", res.data.order)
+            setPedido(res.data.order)
+        })
+        .catch((err) => {
+            console.log("Deu eraddo", err)
+    })
+
+}, [])
 
     useEffect(() => {
         axios.get(`${BASE_URL}/restaurants`, headers)
@@ -43,9 +53,11 @@ const FeedPage = () => {
             .catch((err) => {
                 console.log(err)
             })
+        
+        }, [pedido])
+           
 
-    }, [])
-    console.log(restaurants)
+
 
     const filteredRestaurants = filterRestaurants();
     return (
@@ -78,6 +90,8 @@ const FeedPage = () => {
 
                 )
             })}
+            {pedido !== null? <CardProductProgress restaurant={pedido.restaurantName} total={pedido.totalPrice}/> : <p></p>}
+            
             <MenuFeed>
                 <img src='https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/8CD04B9B-73CB-40DC-AE16-63CE142EF1F4.svg' />
                 <img onClick={() => goToCart(history)} src='https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/EC5DAC84-C9D0-4BA6-869A-6431F534FCBE.svg' />
