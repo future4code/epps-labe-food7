@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import axios from 'axios';
-import { ContainerContent, Header, Input, ContainerSearch, Card, ImageCard, DetailCard, ContainerFiltro, MenuFeed } from './style'
+import { Filtro, Filtros, ContainerContent, Header, Input, ContainerSearch, Card, ImageCard, DetailCard, ContainerFiltro, MenuFeed } from './style'
 import { useState } from 'react';
 import { goToDetails, goToProfile, goToCart } from '../../Routes/Coordinator';
 import { useHistory } from 'react-router';
 import { BASE_URL } from '../../constants/urls';
 import useForm from '../../Hooks/useForm'
 import CardProductProgress from '../../Components/CardProductProgress/CardProductProgress';
+import useProtectedPage from '../../Hooks/useProtectedPage';
 
 const FeedPage = () => {
-
+    useProtectedPage()
     const [restaurants, setRestaurants] = useState([]);
     const history = useHistory();
     const [form, onChange, clearFields] = useForm({ busca: "" })
@@ -33,7 +34,7 @@ const FeedPage = () => {
             auth: localStorage.getItem('token')
         }
     }
-    useEffect(() => {
+    useLayoutEffect(() => {
         axios.get(`${BASE_URL}/active-order`, headers)
         .then((res) => {
             console.log("Deu certo", res.data.order)
@@ -55,9 +56,7 @@ const FeedPage = () => {
             })
         
         }, [pedido])
-           
-
-
+           console.log("Pedido", pedido)
 
     const filteredRestaurants = filterRestaurants();
     return (
@@ -74,8 +73,12 @@ const FeedPage = () => {
                 />
             </ContainerSearch>
             <ContainerFiltro>
-                <p>Burger</p>
-                <p>Asiática</p>
+                <Filtros>
+                <Filtro>Burger</Filtro>
+                <Filtro>Asiática</Filtro>
+               {/*  <Filtro>Massas</Filtro>
+                <Filtro>Saudáveis</Filtro> */}
+                </Filtros>
             </ContainerFiltro>
             {filteredRestaurants.map((i) => {
                 return (
@@ -90,7 +93,7 @@ const FeedPage = () => {
 
                 )
             })}
-            {pedido !== null? <CardProductProgress restaurant={pedido.restaurantName} total={pedido.totalPrice}/> : <p></p>}
+            {pedido === null?  <p></p> : <CardProductProgress restaurant={pedido.restaurantName} total={pedido.totalPrice}/> }
             
             <MenuFeed>
                 <img src='https://cdn.zeplin.io/5dcc566ddc1332bf7fb4f450/assets/8CD04B9B-73CB-40DC-AE16-63CE142EF1F4.svg' />

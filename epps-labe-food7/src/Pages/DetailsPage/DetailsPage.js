@@ -7,6 +7,7 @@ import axios from 'axios';
 import Modal from 'react-modal';
 import { BASE_URL } from "../../constants/urls";
 import GlobalStateContext from "../../Global/GlobalStateContext";
+import useForm from "../../Hooks/useForm";
 
 Modal.setAppElement('#root')
 
@@ -17,6 +18,7 @@ const DetailsPage = () => {
     const [products, setProducts] = useState([]);
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const { states, setters, requests } = useContext(GlobalStateContext);
+    const [form, onChange, clearFields] = useForm({ quantidade: 0 })
 
     useEffect(() => {
         axios.get(`${BASE_URL}/restaurants/${params.id}`,
@@ -39,9 +41,10 @@ const DetailsPage = () => {
         const index = states.cart.findIndex((i) => i.id === newItem.id);
         let newCart = [...states.cart];
         if (index === -1) {
-            newCart.push({ ...newItem, amount: 1 });
+            console.log("Valoe", form.quantidade)
+            newCart.push({ ...newItem, amount: Number(form.quantidade) });
         } else {
-            newCart[index].amount += 1;
+            newCart[index].amount += Number(form.quantidade);
         }
         setters.setCart(newCart);
         setters.setIdRestaurant(params.id)
@@ -103,7 +106,10 @@ const DetailsPage = () => {
                                     <DivModal>
 
                                         <h4>Selecione a quantidade desejada </h4>
-                                        <select name="quantidade">
+
+                                        <select name={"quantidade"}
+                                            value={form.quantidade}
+                                            onChange={onChange}>
                                             <option value="0" selected disabled>0</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
