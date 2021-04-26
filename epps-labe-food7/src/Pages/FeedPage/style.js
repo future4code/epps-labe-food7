@@ -28,12 +28,12 @@ p {
 
 `
 
-export const ContainerSearch = styled.div ` 
+export const ContainerSearch = styled.div` 
     text-align: center;
 
 `
 
-export const Input = styled.input `
+export const Input = styled.input`
    width: 328px;
   height: 56px;
   font-size: 18px;
@@ -46,15 +46,9 @@ export const Input = styled.input `
   
 `
 
-export const ContainerFiltro = styled.div ` 
-      width: 360px;
-  height: 42px;
-  display: flex;
-  justify-content: space-around;
-  padding:5px;
-`
 
-export const Card = styled.div ` 
+
+export const Card = styled.div` 
     width: 328px;
     height: 188px;
     border-radius: 8px;
@@ -71,7 +65,7 @@ export const Card = styled.div `
     }
 `
 
-export const DetailCard = styled.div ` 
+export const DetailCard = styled.div` 
     display: flex;
     justify-content:space-between;
     p {
@@ -82,13 +76,13 @@ export const DetailCard = styled.div `
 
     }
 `
-export const ImageCard = styled.img ` 
+export const ImageCard = styled.img` 
     border-radius: 8px 8px 0 0;
     height: 120px;
     width: 328px;
 `
 
-export const MenuFeed = styled.div `
+export const MenuFeed = styled.div`
     height: 55px;
     position: fixed;
     top:92%;
@@ -103,4 +97,30 @@ export const MenuFeed = styled.div `
         cursor:pointer;
     }
 
+`
+export const ContainerFiltro = styled.div` 
+  height: 42px;
+  display: flex;
+  padding:5px;
+`
+
+export const Filtros = styled.div`
+margin:0 auto;
+width: 430px;
+display: flex;
+justify-content: space-around;
+`
+
+export const Filtro = styled.p`
+    width: 87px;
+    height: 18px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
+    text-align: center;
+    color: #5cb646;
 `

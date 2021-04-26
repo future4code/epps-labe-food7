@@ -176,7 +176,7 @@ font-style: normal;
 line-height: normal;
 `;
 
-export const SeparationLine = styled.div`
+export const SeparationLine = styled.hr`
 width: 328px;
   height: 1px;
   margin: 8px 16px;
@@ -231,3 +231,22 @@ justify-content: center;
   background-color: rgba(92, 182, 70, 0.5);
   margin: 11px 0px 15px 0px;
 `;
+
+export const MenuFeed = styled.div `
+    height: 55px;
+    position: -webkit-sticky;
+position: sticky;
+top: 20px;
+    top:92%;
+    box-sizing: border-box;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #ffffff;
+    border: 1px solid #b8b8b8;
+    width:100vw;
+    img {
+        cursor:pointer;
+    }
+
+`
